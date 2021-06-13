@@ -16,8 +16,7 @@
         </style>
 </head>
 <body>
-	<jsp:useBean id="userListDatabean"
-		class="databean.UserListDatabean" />
+	<jsp:useBean id="userListDatabean" class="databean.UserListDatabean" />
 		
 	<header>
 	<div id="left"><h1>
