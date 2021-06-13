@@ -18,7 +18,6 @@ public class UserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
 	    throws ServletException, IOException {
 	    String actionType = req.getParameter("actiontype");
-	    //Обробка запиту на додання продукту
 	    if ("adduser".equalsIgnoreCase(actionType)) {
 	      String userFirstName = req.getParameter("userfirstname");
 	      String userLastName = req.getParameter("userlastname");
@@ -29,12 +28,10 @@ public class UserServlet extends HttpServlet {
 	      user.setLastName(userLastName);
 	      user.setAge(userAge);
 	      InsertUser.addUser(user);
-	    //Обробка запиту на видалення продукту
 	    } else if ("deleteuser".equalsIgnoreCase(actionType)) {
 	      String userIdString = req.getParameter("userid");
 	      Long userId = Long.parseLong(userIdString);
 	      DeleteUser.deleteUserById(userId);
-	    //Обробка запиту на оновлення продукту
 	    } else if ("updateuser".equalsIgnoreCase(actionType)) {
 	      String userIdString = req.getParameter("userid");
 	      Long userId = Long.parseLong(userIdString);
@@ -48,7 +45,6 @@ public class UserServlet extends HttpServlet {
 		  user.setAge(userAge);
 	      UpdateUser.updateUser(user);
 	    }
-	    //Після обробки запиту перейти на сторінку продукту
 	    resp.sendRedirect("user.jsp");
 	  }
 }

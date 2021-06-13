@@ -24,7 +24,7 @@
 	User page 
 	</h1></div>
 	</header>		
-	<form method="post" action="user">	
+	
 		<table style="width: 100%" border="1">
 			<tr>
 				<td>Id</td>
@@ -59,15 +59,17 @@
 				</tr>
 			</c:forEach>
 			<tr>
-				<td></td>
-				<td><input type="text" name="userfirstname" /></td>
-				<td><input type="text" name="userlastname" /></td>
-				<td><input type="text" name="userage" /></td>
-				<td><input type="hidden" name="actiontype" value="adduser" />
-					<input type="submit" name="adduser" value="Add user">
-				</td>
+				<form method="post" action="user">	
+					<td></td>
+					<td><input type="text" name="userfirstname" /></td>
+					<td><input type="text" name="userlastname" /></td>
+					<td><input type="text" name="userage" /></td>
+					<td><input type="hidden" name="actiontype" value="adduser" />
+						<input type="submit" name="adduser" value="Add user">
+					</td>
+			</form>
 			</tr>
 		</table>
-	</form>
+	
 </body>
 </html>
