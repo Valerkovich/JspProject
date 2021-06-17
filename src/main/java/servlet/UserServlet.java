@@ -19,32 +19,47 @@ public class UserServlet extends HttpServlet {
 	    throws ServletException, IOException {
 	    String actionType = req.getParameter("actiontype");
 	    if ("adduser".equalsIgnoreCase(actionType)) {
-	      String userFirstName = req.getParameter("userfirstname");
-	      String userLastName = req.getParameter("userlastname");
-	      String userAgeString = req.getParameter("userage");
-	      int userAge = Integer.parseInt(userAgeString);
-	      User user = new User();
-	      user.setFirstName(userFirstName);
-	      user.setLastName(userLastName);
-	      user.setAge(userAge);
-	      InsertUser.addUser(user);
+	      addUser(req);
 	    } else if ("deleteuser".equalsIgnoreCase(actionType)) {
-	      String userIdString = req.getParameter("userid");
-	      Long userId = Long.parseLong(userIdString);
-	      DeleteUser.deleteUserById(userId);
+	      deleteUser(req);
 	    } else if ("updateuser".equalsIgnoreCase(actionType)) {
-	      String userIdString = req.getParameter("userid");
-	      Long userId = Long.parseLong(userIdString);
-	      String userFirstName = req.getParameter("userfirstname");
-	      String userLastName = req.getParameter("userlastname");
-	      String userAgeString = req.getParameter("userage");
-	      int userAge = Integer.parseInt(userAgeString);
-	      User user = SelectUser.getUserById(userId);
-	      user.setFirstName(userFirstName);
-		  user.setLastName(userLastName);
-		  user.setAge(userAge);
-	      UpdateUser.updateUser(user);
+	      updateUser(req);
 	    }
 	    resp.sendRedirect("user.jsp");
 	  }
+
+	private void updateUser(HttpServletRequest req) {
+		String userIdString = req.getParameter("userid");
+		Long userId = Long.parseLong(userIdString);
+	    String userFirstName = req.getParameter("userfirstname");
+	    String userLastName = req.getParameter("userlastname");
+	    String userAgeString = req.getParameter("userage");
+	    int userAge = Integer.parseInt(userAgeString);
+	    User user = SelectUser.getUserById(userId);
+	    user.setFirstName(userFirstName);
+		user.setLastName(userLastName);
+		user.setAge(userAge);
+	    UpdateUser.updateUser(user);
+	}
+
+	private void deleteUser(HttpServletRequest req) {
+		String userIdString = req.getParameter("userid");
+	    Long userId = Long.parseLong(userIdString);
+	    DeleteUser.deleteUserById(userId);
+	}
+
+	private void addUser(HttpServletRequest req) {
+		if(true) throw new ClassCastException();
+		String userFirstName = req.getParameter("userfirstname").trim();
+	    String userLastName = req.getParameter("userlastname").trim();
+	    String userEmail = req.getParameter("useremail").trim();
+	    String userAgeString = req.getParameter("userage").trim();
+	    int userAge = Integer.parseInt(userAgeString);
+	    User user = new User();
+	    user.setFirstName(userFirstName);
+	    user.setLastName(userLastName);
+	    user.setEmail(userEmail);
+	    user.setAge(userAge);
+	    InsertUser.addUser(user);
+	}
 }

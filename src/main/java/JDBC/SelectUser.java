@@ -15,7 +15,7 @@ public class SelectUser {
 	public static List<User> getAllUsers(){
 		List<User> userList = new ArrayList<>();
 		
-		String sqlSelect = "select id, firstname, lastname, age from users";
+		String sqlSelect = "select id, firstname, lastname, email, age from users";
 		try (Connection conn = Connect.getConnect();
 				Statement st = conn.createStatement();
 				ResultSet resultSet = st.executeQuery(sqlSelect);){
@@ -25,8 +25,9 @@ public class SelectUser {
 				Long id = resultSet.getLong(1);
 				String firstName = resultSet.getString(2);
 				String lastName = resultSet.getString(3);
-				int age = resultSet.getInt(4);
-				userList.add(new User(id,firstName,lastName,age));
+				String email = resultSet.getString(4);
+				int age = resultSet.getInt(5);
+				userList.add(new User(id,firstName,lastName,email,age));
 			}
 			
 		} catch (SQLException e) {

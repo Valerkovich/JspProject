@@ -4,6 +4,7 @@ public class User {
 	private Long id;
     private String firstName;
     private String lastName;
+    private String email;
     private int age;
     
     public User() {
@@ -16,7 +17,7 @@ public class User {
         this.age = age;
     }
     
-    public User(Long id, String firstName, String lastName, int age) {
+    public User(Long id, String firstName, String lastName, String email, int age) {
     	this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -39,6 +40,10 @@ public class User {
         this.age = age;
     }
     
+    public void setEmail(String email) {
+    	this.email = email;
+    }
+    
     public Long getId() {
     	return id;
     }
@@ -53,6 +58,10 @@ public class User {
 
     public int getAge() {
         return age;
+    }
+    
+    public String getEmail() {
+    	return email;
     }
 }
 
