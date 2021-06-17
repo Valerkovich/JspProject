@@ -49,7 +49,6 @@ public class UserServlet extends HttpServlet {
 	}
 
 	private void addUser(HttpServletRequest req) {
-		if(true) throw new ClassCastException();
 		String userFirstName = req.getParameter("userfirstname").trim();
 	    String userLastName = req.getParameter("userlastname").trim();
 	    String userEmail = req.getParameter("useremail").trim();
@@ -59,6 +58,7 @@ public class UserServlet extends HttpServlet {
 	    user.setFirstName(userFirstName);
 	    user.setLastName(userLastName);
 	    user.setEmail(userEmail);
+	    System.out.println(userEmail);
 	    user.setAge(userAge);
 	    InsertUser.addUser(user);
 	}

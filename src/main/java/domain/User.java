@@ -22,6 +22,7 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.email = email;
     }
     
     public void setId(Long id) {

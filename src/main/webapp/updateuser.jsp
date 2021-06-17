@@ -30,6 +30,10 @@
 			User age: <input type="text" name="userage"
 				value="${param.userage}" />
 		</p>
+		<p>
+			User age: <input type="text" name="useremail"
+				value="${param.useremail}" />
+		</p>
 		<input type="submit" name="deleteuser" value="Update user" /> <input
 			type="button" onclick="window.location.href='${userUrl}'"
 			value="Cancel">

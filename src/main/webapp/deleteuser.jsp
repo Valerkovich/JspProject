@@ -13,6 +13,7 @@
 	<p>User first name ${param.userfirstname}</p>
 	<p>User last name ${param.userlastname}</p>
 	<p>User age ${param.userage}</p>
+	<p>User email ${param.useremail}</p>
 	<p>Could you please confirm?</p>
 	<c:url var="userUrl" value="/user.jsp" />
 	<form method="post" action="user">

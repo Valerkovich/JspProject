@@ -10,6 +10,7 @@ public class UserListDatabean {
 	
 	public UserListDatabean() {
 		userList = SelectUser.getAllUsers();
+
 	}
 
 	public List<User> getUserList() {

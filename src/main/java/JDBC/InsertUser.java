@@ -10,13 +10,14 @@ public class InsertUser {
 	
 	public static void addUser(User user) {
 		String sqlInsert = "insert into users "
-				+ "(firstname, lastname, age) values (?,?,?)";
+				+ "(firstname, lastname, age, email) values (?,?,?,?)";
 		try (Connection conn = Connect.getConnect();
 	            PreparedStatement st = conn.prepareStatement(sqlInsert);){
 				
 			st.setString(1, user.getFirstName());
 			st.setString(2, user.getLastName());
 			st.setInt(3, user.getAge());
+			st.setString(4, user.getEmail());
 			
 			st.executeUpdate();
 		} catch (SQLException e) {

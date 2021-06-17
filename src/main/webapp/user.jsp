@@ -30,6 +30,7 @@
 				<td>FirstName</td>
 				<td>LastName</td>
 				<td>Age</td>
+				<td>Email</td>
 				<td>Action</td>
 			</tr>
 			<c:forEach var="user" items="${userListDatabean.getUserList()}">
@@ -38,16 +39,19 @@
 					<td><c:out value="${user.firstName}" /></td>
 					<td><c:out value="${user.lastName}" /></td>
 					<td><c:out value="${user.age}" /></td>
+					<td><c:out value="${user.email}" /></td>
 					<td><c:url var="deleteUrl" value="/deleteuser.jsp">
 							<c:param name="userid" value="${user.id}" />
 							<c:param name="userfirstname" value="${user.firstName}" />
 							<c:param name="userlastname" value="${user.lastName}" />
 							<c:param name="userage" value="${user.age}" />
+							<c:param name="useremail" value="${user.email}" />
 						</c:url> <c:url var="updateUrl" value="/updateuser.jsp">
 							<c:param name="userid" value="${user.id}" />
 							<c:param name="userfirstname" value="${user.firstName}" />
 							<c:param name="userlastname" value="${user.lastName}" />
 							<c:param name="userage" value="${user.age}" />
+							<c:param name="useremail" value="${user.email}" />
 						</c:url>
 						<p>
 							<a href="${deleteUrl}">Delete user</a>
@@ -63,6 +67,7 @@
 					<td><input type="text" name="userfirstname" /></td>
 					<td><input type="text" name="userlastname" /></td>
 					<td><input type="text" name="userage" /></td>
+					<td><input type="text" name="useremail" /></td>
 					<td><input type="hidden" name="actiontype" value="adduser" />
 						<input type="submit" name="adduser" value="Add user">
 					</td>

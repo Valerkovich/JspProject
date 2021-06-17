@@ -18,4 +18,17 @@ public class DeleteUser {
 			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
 		}
 	}
+	
+	public static void deleteUserByName(String name) {
+		String sqlDelete = "DELETE FROM users WHERE firstName = ?;";
+		try (Connection conn = Connect.getConnect();
+	            PreparedStatement st = conn.prepareStatement(sqlDelete);){
+				
+			st.setString(1, name);
+			st.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+		}
+	}
 }
