@@ -1,5 +1,4 @@
 package JDBC;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -8,7 +7,7 @@ public class Connect {
 	public static Connection getConnect() {
         try {
             Class.forName("org.postgresql.Driver");
-            String url = "jdbc:postgresql://127.0.0.1:5432/Test";
+            String url = "jdbc:postgresql://192.168.0.101:5432/Test";
             String login = "postgres";
             String password = "12061996";
             Connection conn = DriverManager.getConnection(url, login, password);
